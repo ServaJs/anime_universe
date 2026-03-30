@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anime Universe - Discover</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <header>
+        <div class="logo">Anime Universe</div>
+        <nav>
+            <ul class="nav-links">
+                <li class="nav-active"><a href="index.html">Discover</a></li>
+                <li><a href="trending.html">Trending</a></li>
+                <li><a href="news.html">News</a></li>
+                <li><a href="watchlist.html">Watchlist</a></li>
+            </ul>
+        </nav>
+    </header>
+    
+    <div class="hero-container">
+        <div class="hero-slides" id="heroSlides"></div>
+        <div class="carousel-dots" id="carouselDots"></div>
+    </div>
+
+    <div class="filter-bar">
+        <div class="search-box">
+            <input type="text" placeholder="Search anime..." id="searchInput">
+        </div>
+        <select id="genreFilter">
+            <option value="">All Genres</option>
+            <option value="1">Action</option>
+            <option value="2">Adventure</option>
+            <option value="10">Fantasy</option>
+            <option value="62">Isekai</option>
+            <option value="37">Supernatural</option>
+            <option value="27">Shounen</option>
+        </select>
+        <select id="statusFilter">
+            <option value="">Any Status</option>
+            <option value="airing">Airing</option>
+            <option value="complete">Complete</option>
+            <option value="upcoming">Upcoming</option>
+        </select>
+        <button id="searchBtn" class="search-btn">Search</button>
+    </div>
+
+    <section id="discoverSection" class="content-section">
+        <h2 class="section-title">Currently Airing</h2>
+        <div class="cards-grid" id="discoverGrid"></div>
+    </section>
+
+    <section id="searchSection" class="content-section hidden">
+        <h2 class="section-title" id="searchResultsTitle">Search Results</h2>
+        <div class="cards-grid" id="searchGrid"></div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
