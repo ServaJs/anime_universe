@@ -1,33 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Universe - News</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="logo">Anime Universe</div>
-        <nav>
-            <ul class="nav-links">
-                <li><a href="index.html">Discover</a></li>
-                <li><a href="trending.html">Trending</a></li>
-                <li class="nav-active"><a href="news.html">News</a></li>
-                <li><a href="watchlist.html">Watchlist</a></li>
-            </ul>
-        </nav>
-    </header>
-    <br><br><br><br>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="logo">Anime Universe</div>
+            <nav>
+                 <div class="nav-overlay" id="navOverlay"></div>
 
-    <section id="newsSection" class="content-section">
+                <button class="burger" id="burgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <!-- Close button inside drawer -->
+                    <button class="nav-close" id="navCloseBtn" aria-label="Close menu">&times;</button>
+
+                    <li><a href="index.html">Discover</a></li>
+                    <li><a href="trending.html">Trending</a></li>
+                    <li class="nav-active"><a href="news.html">News</a></li>
+                    <li><a href="sceneFinder.html">Scene Finder</a></li>
+                    <li><a href="watchlist.html">Watchlist</a></li>
+                </ul>
+            </nav>
+        </header>
+        <br><br><br><br>
+
+     <section id="newsSection" class="content-section">
         <h2 class="section-title">Anime News</h2>
         <div id="newsGrid" class="news-grid">
             <p class="loading-text">Loading latest news...</p>
         </div>
     </section>
-    
-    <script src="script.js"></script>
-</body>
+        <script src="script.js"></script>
+    </body>
 </html>

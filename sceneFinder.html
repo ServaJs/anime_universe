@@ -1,0 +1,102 @@
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="logo">Anime Universe</div>
+                <nav>
+                <div class="nav-overlay" id="navOverlay"></div>
+
+                <button class="burger" id="burgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <!-- Close button inside drawer -->
+                    <button class="nav-close" id="navCloseBtn" aria-label="Close menu">&times;</button>
+
+                    <li><a href="index.html">Discover</a></li>
+                    <li><a href="trending.html">Trending</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li class="nav-active"><a href="sceneFinder.html">Scene Finder</a></li>
+                    <li><a href="watchlist.html">Watchlist</a></li>
+                </ul>
+            </nav>
+        </header>
+                <section class="scene-hero">
+        <div class="scene-hero-content">
+            <h1>Scene Identifier</h1>
+            <p>Upload an anime screenshot or paste an image URL to identify the exact scene, episode, and series information.</p>
+        </div>
+    </section>
+
+    <div class="scene-container">
+        <div class="upload-card">
+            <div class="upload-area" onclick="document.getElementById('fileInput').click()">
+                <i class="fas fa-cloud-upload-alt"></i>
+                <p>Click to upload screenshot</p>
+                <p class="file-name" id="fileName">or drag and drop here</p>
+                <input type="file" id="fileInput" class="hidden" accept="image/*" onchange="updateFileName(this)">
+            </div>
+
+            <div class="divider">OR</div>
+
+            <input type="text" id="sceneInput" class="url-input" placeholder="Paste image URL here...">
+
+            <button class="execute-btn" onclick="searchScene()" id="searchBtn">
+                <i class="fas fa-search"></i>
+                Execute Trace
+            </button>
+        </div>
+
+        <!-- Loader -->
+        <div id="sceneLoader" class="loader-container hidden">
+            <div class="loader"></div>
+            <div class="loader-text">DECRYPTING VISUAL DATA...</div>
+        </div>
+
+        <!-- Empty State -->
+        <div id="sceneEmpty" class="empty-state hidden">
+            <i class="fas fa-satellite-dish"></i>
+            <h3>SIGNAL LOST</h3>
+            <p>No match found for this image. Try another screenshot.</p>
+        </div>
+
+        <!-- Results -->
+        <div id="sceneResults" class="results-card hidden">
+            <div class="video-container">
+                <video id="sceneVideo" autoplay muted loop playsinline></video>
+                <div class="match-badge" id="matchScore">0% MATCH</div>
+            </div>
+            <div class="info-panel">
+                <img id="animeImage" src="" class="cover-img" alt="Anime Cover">
+                <div class="anime-details">
+                    <h2 id="animeTitle">Loading...</h2>
+                    <div class="anime-meta">
+                        <div class="meta-tag">
+                            <i class="fas fa-tv"></i>
+                            <strong>EPISODE:</strong>
+                            <span id="episodeNum">1</span>
+                        </div>
+                        <div class="meta-tag">
+                            <i class="fas fa-calendar"></i>
+                            <strong>SEASON:</strong>
+                            <span id="seasonInfo">-</span>
+                        </div>
+                    </div>
+                    <p class="anime-desc" id="animeDesc">Loading description...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        <script src="script.js"></script>
+    </body>
+</html>
+

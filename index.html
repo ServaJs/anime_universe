@@ -1,62 +1,85 @@
+
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Anime Universe - Discover</title>
-    <link rel="stylesheet" href="style.css">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
-</head>
-<body>
-    <header>
-        <div class="logo">Anime Universe</div>
-        <nav>
-            <ul class="nav-links">
-                <li class="nav-active"><a href="index.html">Discover</a></li>
-                <li><a href="trending.html">Trending</a></li>
-                <li><a href="news.html">News</a></li>
-                <li><a href="watchlist.html">Watchlist</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <div class="hero-container">
-        <div class="hero-slides" id="heroSlides"></div>
-        <div class="carousel-dots" id="carouselDots"></div>
-    </div>
+    <head>
+        <link rel="stylesheet" href="style.css">
+        <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+    </head>
+    <body>
+        <header>
+            <div class="logo">Anime Universe</div>
+                <nav>
+                <div class="nav-overlay" id="navOverlay"></div>
 
-    <div class="filter-bar">
-        <div class="search-box">
-            <input type="text" placeholder="Search anime..." id="searchInput">
+                <button class="burger" id="burgerBtn" aria-label="Toggle navigation" aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+
+                <ul class="nav-links" id="navLinks">
+                    <!-- Close button inside drawer -->
+                    <button class="nav-close" id="navCloseBtn" aria-label="Close menu">&times;</button>
+
+                    <li class="nav-active"><a href="index.html">Discover</a></li>
+                    <li><a href="trending.html">Trending</a></li>
+                    <li><a href="news.html">News</a></li>
+                    <li><a href="sceneFinder.html">Scene Finder</a></li>
+                    <li><a href="watchlist.html">Watchlist</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <div class="hero-container">
+            <div class="hero-slides" id="heroSlides"></div>
+            <div class="carousel-dots" id="carouselDots"></div>
         </div>
-        <select id="genreFilter">
-            <option value="">All Genres</option>
-            <option value="1">Action</option>
-            <option value="2">Adventure</option>
-            <option value="10">Fantasy</option>
-            <option value="62">Isekai</option>
-            <option value="37">Supernatural</option>
-            <option value="27">Shounen</option>
-        </select>
-        <select id="statusFilter">
-            <option value="">Any Status</option>
-            <option value="airing">Airing</option>
-            <option value="complete">Complete</option>
-            <option value="upcoming">Upcoming</option>
-        </select>
-        <button id="searchBtn" class="search-btn">Search</button>
-    </div>
 
-    <section id="discoverSection" class="content-section">
-        <h2 class="section-title">Currently Airing</h2>
-        <div class="cards-grid" id="discoverGrid"></div>
-    </section>
+        <div class="filter-bar">
+            <div class="search-box">
+                <input type="text" placeholder="Search anime, studios, voice actors..." id="searchInput">
+            </div>
+            <select id="genreFilter" style="flex: 1; padding: 12px; border-radius: 6px; background: #222; color: #fff; border: 1px solid #444;">
+                <option value="">All Genres</option>
+                <option value="1">Action</option>
+                <option value="2">Adventure</option>
+                <option value="10">Fantasy</option>
+                <option value="62">Isekai</option>
+                <option value="37">Supernatural</option>
+                <option value="27">Shounen</option>
+            </select>
+            <select id="statusFilter" style="flex: 1; padding: 12px; border-radius: 6px; background: #222; color: #fff; border: 1px solid #444;">
+                <option value="">Any Status</option>
+                <option value="airing">Airing</option>
+                <option value="complete">Complete</option>
+                <option value="upcoming">Upcoming</option>
+            </select>
+            <button id="searchBtn" class="search-btn">Search</button>
+        </div>
 
-    <section id="searchSection" class="content-section hidden">
-        <h2 class="section-title" id="searchResultsTitle">Search Results</h2>
-        <div class="cards-grid" id="searchGrid"></div>
-    </section>
+        <section id="discoverSection" class="content-section">
+            <h2 class="section-title">Currently Airing</h2>
+            <div class="cards-grid" id="discoverGrid"></div>
+        </section>
 
-    <script src="script.js"></script>
-</body>
+        <section id="searchSection" class="content-section hidden">
+            <h2 class="section-title" id="searchResultsTitle">Search Results</h2>
+            <div class="cards-grid" id="searchGrid"></div>
+        </section>
+
+        <div class="watchList">
+            <section id="watchlistSection" class="content-section hidden">
+                <h2 class="section-title">My Watchlist</h2>
+                <p class="watchlist-hint" id="watchlistHint">
+                    Browse anime and click <strong>"+ Watchlist"</strong> on any card to save it here.
+                    Your list resets when you close the tab.
+                </p>
+                <div class="cards-grid" id="watchlistGrid">
+                    <p class="loading-text">Your watchlist is empty. Go find some anime! 🎌</p>
+                </div>
+            </section>
+        </div>
+
+        <script src="script.js"></script>
+    </body>
 </html>
